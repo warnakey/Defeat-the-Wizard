@@ -2,12 +2,12 @@ import time
 print("DEFEAT THE WIZARD!")
 print("~~**~~##%%##~~**~~\n")
 time.sleep(1)
-player_class = "blank"
 player_class = ""
 enemy = "Black Wizard"
 
 while player_class != "warrior" or player_class != "wizard":
-    player_class = input("What type of person are you? \n\nType either 'Wizard' or 'Warrior'\n")
+    print("What type of person are you?\n\nType either 'Wizard' or 'Warrior:")
+    player_class = input()
     player_class = player_class.lower()
     if player_class == "warrior":
         print("\nYou are a Warrior. A brave swordsman from the clan Algonia!\n\nThe " + enemy + " has destroyed your home and now you seek revenge!\n")
@@ -24,13 +24,18 @@ while player_class != "warrior" or player_class != "wizard":
 attack = "Attack"
 defend = "Defend"
 dmg = 55
-dfd = dmg*0.5
-health = 250
+full_health = 250
+health = full_health
 mana = 100
 super_smash = dmg*1.7
-enemy_health = 190
+full_enemy_health = 190
+enemy_health = full_enemy_health
 thunderbolt_damage = 42
+dfd = thunderbolt_damage*0.5
+dfd = int(dfd)
 battle_choice_made = False
+current_health = 'print("Health = " + str(health) + "/" + str(full_health))'
+current_enemy_health = 'print("Enemy Health = " + str(enemy_health) + "/" + str(full_enemy_health))'
 
 print("You have arrived to battle the " + enemy + ". Prepare to fight with all your might! \n")
 
@@ -41,7 +46,8 @@ while health > 0 or enemy_health > 0:
     print("# [" + attack + "] [" + defend + "]                                      #")
     print("#                                                        #")
     print("# What would you like to do?                             #")
-    battle_choice = input("# 'A' for attack or 'D' for defend:                      #\n# ")
+    print("# 'A' for attack or 'D' for defend:                      #")
+    battle_choice = input("# ")
     battle_choice = battle_choice.lower()
     battle_choice_made = True
     print("##########################################################")
@@ -53,25 +59,30 @@ while health > 0 or enemy_health > 0:
             if enemy_health > 0:
                 print("The " + enemy + " takes aim and strikes you with a mighty thunderbolt.")
                 print("Luckily, your defense has protected you.\n")
-                health = health-thunderbolt_damage
-                print("Health = " + str(health) + "/220")
-                print("Enemy Health = " + str(enemy_health) + "/180\n")
+                health = health-dfd
+                exec(current_health)
+                exec(current_enemy_health)
+                print("")
             else:
-                print("Your Health = " + str(health) + "/220")
-                print("Enemy Health = " + str(enemy_health) + "/180\n")
+                exec(current_health)
+                exec(current_enemy_health)
+                print("")
         elif battle_choice == "a":
             enemy_health = enemy_health-dmg
-            print("\nYou unleash a powerful blow against the evil Wizard!")
-            print("\nEnemy health = " + str(enemy_health) + "/180\n")
+            print("\nYou unleash a powerful blow against the evil Wizard!\n")
+            exec(current_enemy_health)
+            print("")
             last_choice = "A"
             if enemy_health > 0:
                 print("The " + enemy + " takes aim and strikes you with a mighty thunderbolt.\n")
                 health = health-thunderbolt_damage
-                print("Health = " + str(health) + "/220")
-                print("Enemy Health = " + str(enemy_health) + "/180\n")
+                exec(current_health)
+                exec(current_enemy_health)
+                print("")
             else:
-                print("Health = " + str(health) + "/220")
-                print("Enemy Health = " + str(enemy_health) + "/180\n")
+                exec(current_health)
+                exec(current_enemy_health)
+                print("")
         else:
             print("\nInvalid selection. Please type either 'A' or 'D'.\n")
         break
