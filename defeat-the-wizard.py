@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import time
 print("DEFEAT THE WIZARD!")
 print("~~**~~##%%##~~**~~\n")
