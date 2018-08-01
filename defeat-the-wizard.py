@@ -7,7 +7,7 @@ player_class = ""
 enemy = "Black Wizard"
 
 while player_class != "warrior" or player_class != "wizard":
-    print("What type of person are you?\n\nType either 'Wizard' or 'Warrior:")
+    print("What type of person are you?\n\nType either 'Wizard' or 'Warrior':")
     player_class = input()
     player_class = player_class.lower()
     if player_class == "warrior":
