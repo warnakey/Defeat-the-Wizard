@@ -101,13 +101,13 @@ while health > 0 or enemy_health > 0:
     if health <= 0:
         print("~~**~~##%%##~~**~~\n")
         print(f"Oh no! The evil {enemy} has felled you! You must try again to defeat him!")
-		print("\n")
+        print("\n")
         break
 
     if enemy_health <= 0:
         print("~~**~~##%%##~~**~~\n")
         print(f"And so the mighty hero defeated the evil {enemy} restoring peace to the land!")
-		print()
+        print()
         print("Though the power of the wizard was great, your powers were even stronger! Congratulations!\n")
         print("You are the winner!\n")
         time.sleep(3)
